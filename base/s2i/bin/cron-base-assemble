@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+cron-post-assemble()
+{
+    if [ -x cron/post-assemble ]; then
+        echo "---> Running cron/post-assemble"
+        source cron/post-assemble
+    fi
+}
+trap cron-post-assemble EXIT
+
+cp -Rf /tmp/src/. ./
+
+echo "---> Installing default crontab"
+cp -f ../etc/crontab /etc/crontab
+
+if [ -e ./cron/crontab ]; then
+    echo "---> Appending user-defined /etc/crontab"
+    {
+    echo
+    echo "# User-defined crontab"
+    cat ./cron/crontab
+    } >> /etc/crontab
+fi
+
+echo "---> Looking for user-defined jobs in" cron/{minutely,hourly,daily,weekly,monthly}
+for dir in cron/{minutely,hourly,daily,weekly,monthly}; do
+    if [ -d $dir ]; then
+        echo " ---> Installing user-defined jobs: $dir -> /etc/$dir"
+        cp -Rf "${dir}/." "/etc/${dir}/"
+    fi
+done
+
+# Fix source directory permissions
+fix-permissions ./

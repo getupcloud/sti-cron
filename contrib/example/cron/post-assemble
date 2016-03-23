@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "===> Installing cron jobs after assemble has finished"
+
+cat >> /etc/cron/hourly/tick-hour <<EOF
+#!/bin/bash
+echo "[`date`] TICK - every hour" >> /var/log/cron.log
+EOF
+
+chmod +x /etc/cron/hourly/tick-hour

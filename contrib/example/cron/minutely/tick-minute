@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "[`date`] TICK - every minute" >> /var/log/cron.log

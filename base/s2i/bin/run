@@ -1,0 +1,3 @@
+#!/bin/bash
+
+source $STI_SCRIPTS_PATH/cron-base-run
