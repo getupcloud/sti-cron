@@ -1,0 +1,7 @@
+# This file will be processed during "run" stage to generate /etc/cron.env
+# Because cron strips away most environment variables prior runnig your script,
+# you must "source /etc/cron.env" from your cron job files yourself.
+
+#DATABASE_SEVICE_NAME=${DATABASE_SEVICE_NAME}
+#MYSQL_USER=${MYSQL_USER}
+#MYSQL_PASSWORD=${MYSQL_PASSWORD}
