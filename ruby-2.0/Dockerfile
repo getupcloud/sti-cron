@@ -7,7 +7,7 @@ ENV RUBY_VERSION=2.0
 LABEL io.k8s.description="Ruby 2.0 image for cron-based containers" \
       io.k8s.display-name="Cron 1.0 for Ruby 2.0" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,cron,cron1,ruby,ruby19"
+      io.openshift.tags="builder,cron,cron1,ruby,ruby20"
 
 USER root
 
