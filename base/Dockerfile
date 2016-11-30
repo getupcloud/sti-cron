@@ -24,7 +24,8 @@ RUN chmod 777 /var/spool/cron/ /var/run/ && \
     sed -i -s 's/^\(account\s\+include\s\+password-auth\)$/#\1/' /etc/pam.d/crond && \
     echo -e 'user\ndefault' > /etc/cron.allow && rm -f /etc/cron.deny && \
     mkdir -p /etc/cron/{minutely,hourly,daily,weekly,monthly} && \
-    chmod -R g+rw /etc /var/log
+    chmod -R g+rw /etc && \
+    chmod -R 777 /var/log
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
