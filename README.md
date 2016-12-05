@@ -1,3 +1,6 @@
+
+**This repo is deprecated in favor of https://github.com/getupcloud/crond**
+
 STI-enabled Cron docker containers
 ================================
 

@@ -1,3 +1,5 @@
+**This repo is deprecated in favor of https://github.com/getupcloud/crond**
+
 Cron docker base image
 ======================
 
